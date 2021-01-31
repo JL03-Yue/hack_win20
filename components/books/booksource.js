@@ -1,19 +1,25 @@
 const lst = [
     {
       id: 1,
-      bookName: 'LeJi-un',
-      bookHandle: '@xxxIUxxx',
-      bookPic: "https://media.allure.com/photos/5d601b3e531caa0008cbc17c/3:4/w_1279,h_1705,c_limit/IU%20at%20a%20press%20conference.jpg",
-      bookContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis mauris mollis congue vitae a nibh. ",
-      postPic: "https://static.billboard.com/files/2020/05/iu-feb-2020-billboard-1548-1589305869-1024x677.jpg"
+      bookName: 'Linear Algebra',
+      bookEdition:5,
+      className: "Math 115A",
+      bookPic: "https://www.pearson.com/store/medias/-bigcovers-0134877802.jpg-size-W370?context=bWFzdGVyfGltYWdlc3w2MjQxNHxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2g4YS9oMmIvOTEwMDA3NjE1NDkxMC9iaWdjb3ZlcnMvMDEzNDg3NzgwMi5qcGdfc2l6ZV9XMzcwfDgxNGI2ZDNkNDIyN2Y1NzE4ZWFmMjUwMjEwZTI0MTRkMzBlOWJkZTJiODVlNWZhNzg2YjE0NTI1YTAxNDEzZGM",
+      bookContent: "This acclaimed theorem-proof text presents a careful treatment of the principal topics of linear algebra. It emphasizes the symbiotic relationship between linear transformations and matrices, but states theorems in the more general infinite-dimensional case where appropriate. Applications to such areas as differential equations, economics, geometry, and physics appear throughout, and can be included at the instructor’s discretion.  ",
+      authorName: ["Lawrence E. Spence", "Stephen H. Friedberg", "Arnold J. Insel"],
+      professorName: "Christy Hazel",
+      optional: "False"
     },
     {
       id: 2,
-      bookName: 'CatCafe',
-      bookHandle: '@catcafe23',
-      bookPic: "https://www.animeoutline.com/wp-content/uploads/2018/07/anime_cat.png",
-      bookContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis mauris mollis congue vitae a nibh. ",
-      postPic: "https://i.pinimg.com/736x/33/32/6d/33326dcddbf15c56d631e374b62338dc.jpg"
+      bookName: 'Introduction to Digital Systems',
+      bookEdition:0,
+      className: "CS M51A",
+      bookPic: "https://images-na.ssl-images-amazon.com/images/I/41pB1T6j0lL._SX386_BO1,204,203,200_.jpg",
+      bookContent: "A basic grounding in one of today's quickly evolving technologies. To gain one's bearing in the whirlwind of rapid development in the digital theory arena, getting a firm grasp of the basics is vital. This book provides a solid foundation in the elements of basic digital electronic and switching theory. Down to earth, yet scholarly in approach, it builds on theory with discussions of real-world digital components, design methodologies, and tools. A companion Web site provides additional information.",
+      authorName: ["Milos D. Ercegovac","Tom?s Lang","Jaime H. Moreno"],
+      professorName: "Omid Abari",
+      optional:"true"
     },
     {
       id: 3,

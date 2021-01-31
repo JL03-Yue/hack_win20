@@ -11,29 +11,28 @@ import { Feather, Entypo,  } from '@expo/vector-icons';
 function BookPost (props) {
     return(
         <View style={styles.container}>
-        <View style={styles.profileContainer}>
-        <Image 
-        style={styles.profilePic}
-        source={{
-            uri: props.bookPic
-        }}
-        />
-        </View>
+        
         
         <View style={styles.postContainer}>
-            <View style={styles.title}>
-                <Text style={styles.bookName}>{props.bookName}</Text>
-                <Text style={styles.handleName}>{props.bookHandle}</Text>
-            </View>
-            <Text>
-            {props.bookContent}
-            </Text>
+            {/*Book Image */}
             <Image 
             style={styles.postImage}
             source={{
-                uri: props.postPic
+                uri: props.bookPic
             }}
             />
+
+            <View style={styles.title}>
+                <Text style={styles.bookName}>{props.bookName}</Text>
+                <Text>{props.className}</Text>
+                <Text>{props.authorName}</Text>
+                <Text>{props.professorName}</Text>
+            </View>
+
+            <Text>
+                {props.bookContent}
+            </Text>
+            
             <View style={styles.icons}>
                 <Feather name="message-circle" size={24} color="black" />
                 <Entypo name="retweet" size={24} color="black" />

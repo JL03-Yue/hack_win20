@@ -16,10 +16,13 @@ export default ()=>{
           return(
             <BookPost 
               bookName={obj.item.bookName}
-              bookHandle={obj.item.bookHandle}
+              bookEdition={obj.item.bookName}
+              className={obj.item.className}
               bookPic={obj.item.bookPic}
               bookContent={obj.item.bookContent}
-              postPic={obj.item.postPic}
+              authorName={obj.item.authorName}
+              professorName={obj.item.professorName}
+              optional={obj.item.optional}
             />
           );
         }}
