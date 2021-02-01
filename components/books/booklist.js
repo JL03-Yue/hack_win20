@@ -13,7 +13,7 @@ function BookPost (props) {
         <View style={styles.container}>
         
         
-        <View style={styles.postContainer}>
+        <View style={styles.imageContainer}>
             {/*Book Image */}
             <Image 
             style={styles.postImage}
@@ -21,25 +21,35 @@ function BookPost (props) {
                 uri: props.bookPic
             }}
             />
+        </View>
 
-            <View style={styles.title}>
+        <View style={styles.contentContainer}>
+
+            <View style={styles.textBook}>
                 <Text style={styles.bookName}>{props.bookName}</Text>
-                <Text>{props.className}</Text>
                 <Text>{props.authorName}</Text>
-                <Text>{props.professorName}</Text>
+                
             </View>
+            
+            <View style={styles.class}>
+                <Text>{props.className}</Text>
+                <Text>Professor {props.professorName}</Text>
+            </View>
+
 
             <Text>
                 {props.bookContent}
             </Text>
             
+            {/*
             <View style={styles.icons}>
                 <Feather name="message-circle" size={24} color="black" />
                 <Entypo name="retweet" size={24} color="black" />
                 <Feather name="heart" size={24} color="black" />
                 <Feather name="share" size={24} color="black" />
             </View>
-            
+            */}
+
         </View>
     </View>
     );
@@ -48,18 +58,23 @@ function BookPost (props) {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: 'white',
-      alignItems: 'flex-start',
+      alignItems: 'normal',
       justifyContent: 'flex-start',
       flexDirection: 'row',
       borderWidth: 0.5,
-      width: '100%',
       padding: 10
     },
-    profileContainer: {
-        padding: 6,
-        width: '20%'
+    imageContainer: {
+        padding: 15,
+        width: '20%',
     },
-    postContainer: {
+    postImage: {
+        width: '100%',
+        height:700,
+        marginVertical: 20,
+        borderRadius: 10
+    },
+    contentContainer: {
         width: '80%',
         paddingHorizontal: 10,
     },
@@ -68,24 +83,10 @@ const styles = StyleSheet.create({
         marginRight: 10,
         fontWeight: 'bold'
     },
-    handleName: {
-        color: 'grey'
-    },
-    title: {
+    textBook: {
         flexDirection: 'row',
         alignItems: 'center'
-    },
-    profilePic: {
-        width: 60, 
-        height: 60,
-        borderRadius: 30,
-    },
-    postImage: {
-        width: '100%',
-        height: 150,
-        marginVertical: 10,
-        borderRadius: 10
-    },
+    },    
     icons: {
         flexDirection: 'row',
         justifyContent: 'space-between',

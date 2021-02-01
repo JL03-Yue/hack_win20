@@ -22,21 +22,50 @@ const lst = [
       optional:"true"
     },
     {
-      id: 3,
-      bookName: 'Anime Art',
-      bookHandle: '@paimondraws',
-      bookPic: "https://i.pinimg.com/474x/50/70/10/5070101ae7cc267a1ba03d30abdd38e9.jpg",
-      bookContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis mauris mollis congue vitae a nibh. ",
-      postPic: "https://i.pinimg.com/originals/f7/fe/c0/f7fec03ec36ff391848b5bc607c0578c.jpg"
+        id: 3,
+        bookName: 'Being Wrong',
+        bookEdition:0,
+        className: "Psych 135",
+        bookPic: "https://images-na.ssl-images-amazon.com/images/I/41NkXlVAUeL._SX326_BO1,204,203,200_.jpg",
+        bookContent: "To err is human. Yet most of us go through life assuming (and sometimes insisting) that we are right about nearly everything, from the origins of the universe to how to load the dishwasher. In Being Wrong, journalist Kathryn Schulz explores why we find it so gratifying to be right and so maddening to be mistaken. Drawing on thinkers as varied as Augustine, Darwin, Freud, Gertrude Stein, Alan Greenspan, and Groucho Marx, she shows that error is both a given and a gift; one that can transform our worldviews, our relationships, and ourselves.",
+        authorName: "Kathryn Schulz",
+        professorName: "Julie Smurda",
+        optional:"false"
     },
     {
       id: 4,
-      bookName: 'Doggo',
-      bookHandle: '@mr.doggo',
-      bookPic: "https://www.animeoutline.com/wp-content/uploads/2018/05/anime_dog_drawing.png",
-      bookContent: "Lorem ipsum dolor` sit amet, consectetur adipiscing elit. Integer vel dolor quis mauris mollis congue vitae a nibh. ",
-      postPic: "https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg"
-    }
+        bookName: 'The Tipping Point',
+        bookEdition:0,
+        className: "Psych 135",
+        bookPic: "https://images-na.ssl-images-amazon.com/images/I/31R-U1dkyKL._SX327_BO1,204,203,200_.jpg",
+        bookContent: "The tipping point is that magic moment when an idea, trend, or social behavior crosses a threshold, tips, and spreads like wildfire. Just as a single sick person can start an epidemic of the flu, so too can a small but precisely targeted push cause a fashion trend, the popularity of a new product, or a drop in the crime rate. This widely acclaimed bestseller, in which Malcolm Gladwell explores and brilliantly illuminates the tipping point phenomenon, is already changing the way people throughout the world think about selling products and disseminating ideas.",
+        authorName: "Malcolm Gladwell",
+        professorName: "Julie Smurda",
+        optional:"false"
+    },
+    {
+        id: 5,
+          bookName: 'Stumbling on Happiness',
+          bookEdition:0,
+          className: "Psych 135",
+          bookPic: "https://images-na.ssl-images-amazon.com/images/I/41PK1vOI7FL._SX322_BO1,204,203,200_.jpg",
+          bookContent: "The tipping point is that magic moment when an idea, trend, or social behavior crosses a threshold, tips, and spreads like wildfire. Just as a single sick person can start an epidemic of the flu, so too can a small but precisely targeted push cause a fashion trend, the popularity of a new product, or a drop in the crime rate. This widely acclaimed bestseller, in which Malcolm Gladwell explores and brilliantly illuminates the tipping point phenomenon, is already changing the way people throughout the world think about selling products and disseminating ideas.",
+          authorName: " Daniel Gilbert",
+          professorName: "Julie Smurda",
+          optional:"false"
+    },
+    {
+        id: 6,
+          bookName: 'Social: Why Our Brains Are Wired to Connect',
+          bookEdition:0,
+          className: "Psych 135",
+          bookPic: "https://images-na.ssl-images-amazon.com/images/I/41bxrbnuViL._SX338_BO1,204,203,200_.jpg",
+          bookContent: "Why are we influenced by the behaviour of complete strangers? Why does the brain register similar pleasure when I perceive something as 'fair' or when I eat chocolate? Why can we be so profoundly hurt by bereavement? What are the evolutionary benefits of these traits? The young discipline of 'social cognitive neuroscience' has been exploring this fascinating interface between brain science and human behaviour since the late 1990s. Now one of its founding pioneers, Matthew D. Lieberman, presents the discoveries that he and fellow researchers have made. Using fMRI scanning and a range of other techniques, they have been able to see that the brain responds to social pain and pleasure the same way as physical pain and pleasure; and that unbeknown to ourselves, we are constantly 'mindreading' other people so that we can fit in with them. It is clear that our brains are designed respond to and be influenced by others. For good evolutionary reasons, he argues, we are wired to be social. The implications are numerous and profound. Do we have to rethink what we understand by identity, and free will? How can managers improve the way their teams relate and perform? Could we organize large social institutions in ways that would work far better? And could there be whole new methods of education?",
+          authorName: "Matthew D. Lieberman",
+          professorName: "Julie Smurda",
+          optional:"false"
+    },
+    
   ]
 
   export default lst
