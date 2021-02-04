@@ -13,18 +13,7 @@ import Minepage from './screens/mine/minepage'
 import Marketpage from './screens/market/marketpage'
 import {createStackNavigator} from 'react-navigation-stack'
 
-function WildernessExplorer(){
-  return(
-    <View>
-      <Text>WildernessExplorer</Text>
-      <Button
-        title="Go to profile screen"
-      />
 
-    </View>
-    
-  );
-}
 
 export default function App()
 {
