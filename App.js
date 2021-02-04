@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 /*
 import {createAppContainer} from 'react-navigation'
-import {createStackNavigator} from 'react-navigation-stack'
+
 import {BottomNavigator} from './components/navigation/navigation'
 */
 
@@ -11,6 +11,20 @@ import Homepage from './screens/home/homepage'
 import Searchpage from './screens/search/searchpage'
 import Minepage from './screens/mine/minepage'
 import Marketpage from './screens/market/marketpage'
+import {createStackNavigator} from 'react-navigation-stack'
+
+function WildernessExplorer(){
+  return(
+    <View>
+      <Text>WildernessExplorer</Text>
+      <Button
+        title="Go to profile screen"
+      />
+
+    </View>
+    
+  );
+}
 
 export default function App()
 {
