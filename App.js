@@ -1,17 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
+/*
+import {createAppContainer} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
+import {BottomNavigator} from './components/navigation/navigation'
+*/
 
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
-import TwitterPost from './components/books/booklist';
-import BookDatas from './components/books/booksource';
 import Homepage from './screens/home/homepage'
-
+import Searchpage from './screens/search/searchpage'
+import Minepage from './screens/mine/minepage'
+import Marketpage from './screens/market/marketpage'
 
 export default function App()
 {
   return(
     <SafeAreaView style={styles.container}>
-      
+
       {/*Home Page */}
       <Homepage/>
     </SafeAreaView>

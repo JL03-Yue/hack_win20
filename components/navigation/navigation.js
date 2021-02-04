@@ -1,3 +1,5 @@
+{/*
+
 import React from 'react';
 
 import {createBottomTabNavigator} from 'react-navigation-tabs'
@@ -35,4 +37,6 @@ const BottomNavigator = createBottomTabNavigator({
     }
 });
 
-export default BottomNavigator
+export default 
+
+8*/}
