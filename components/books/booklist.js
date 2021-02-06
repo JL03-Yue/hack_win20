@@ -27,8 +27,12 @@ function BookPost (props) {
 
             <View style={styles.textBook}>
                 <Text style={styles.bookName}>{props.bookName}</Text>
-                <Text>{props.authorName}</Text>
                 
+                
+            </View>
+
+            <View>
+                <Text style={styles.authorName}>{props.authorName}</Text>
             </View>
             
             <View style={styles.class}>
@@ -36,11 +40,11 @@ function BookPost (props) {
                 <Text>Professor {props.professorName}</Text>
             </View>
 
-
+            {/*
             <Text>
                 {props.bookContent}
             </Text>
-            
+            */}
             {/*
             <View style={styles.icons}>
                 <Feather name="message-circle" size={24} color="black" />
@@ -58,34 +62,39 @@ function BookPost (props) {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: 'white',
-      alignItems: 'normal',
       justifyContent: 'flex-start',
       flexDirection: 'row',
-      borderWidth: 0.5,
+      borderWidth: 0.1,
       padding: 10
     },
     imageContainer: {
-        padding: 15,
-        width: '20%',
+        padding: 0,
+        width: '35%',
     },
     postImage: {
-        width: '100%',
-        height:700,
-        marginVertical: 20,
-        borderRadius: 10
+        height:150,
+        display:'flex',
+        marginVertical: 5,
+        borderRadius: 10,
+        borderWidth:1
     },
     contentContainer: {
-        width: '80%',
+        width: '65%',
         paddingHorizontal: 10,
     },
     bookName: {
-        fontSize: 20,
-        marginRight: 10,
+        fontSize: 15,
+        marginBottom:5,
         fontWeight: 'bold'
+    },
+    authorName: {
+        marginBottom:10,
+        fontSize:13
     },
     textBook: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        fontSize:13
     },    
     icons: {
         flexDirection: 'row',

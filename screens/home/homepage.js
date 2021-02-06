@@ -9,6 +9,9 @@ export default ()=>{
   
   return(
     <SafeAreaView style={styles.container}>
+      <View style={styles.hometop}>
+        <Text>Text</Text>
+      </View>
       <FlatList
         data={BookDatas}
         renderItem={(obj) => {
@@ -41,4 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%'
   },
+  hometop:{
+    paddingTop:50
+  }
 });

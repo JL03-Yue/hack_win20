@@ -50,7 +50,7 @@ const lst = [
           className: "Psych 135",
           bookPic: "https://images-na.ssl-images-amazon.com/images/I/41PK1vOI7FL._SX322_BO1,204,203,200_.jpg",
           bookContent: "The tipping point is that magic moment when an idea, trend, or social behavior crosses a threshold, tips, and spreads like wildfire. Just as a single sick person can start an epidemic of the flu, so too can a small but precisely targeted push cause a fashion trend, the popularity of a new product, or a drop in the crime rate. This widely acclaimed bestseller, in which Malcolm Gladwell explores and brilliantly illuminates the tipping point phenomenon, is already changing the way people throughout the world think about selling products and disseminating ideas.",
-          authorName: " Daniel Gilbert",
+          authorName: "Daniel Gilbert",
           professorName: "Julie Smurda",
           optional:"false"
     },

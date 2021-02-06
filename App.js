@@ -11,7 +11,6 @@ import Homepage from './screens/home/homepage'
 import Searchpage from './screens/search/searchpage'
 import Minepage from './screens/mine/minepage'
 import Marketpage from './screens/market/marketpage'
-import {createStackNavigator} from 'react-navigation-stack'
 
 
 
@@ -31,7 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+    paddingTop:10,
     justifyContent: 'center',
     width: '100%'
+    
   },
 });
