@@ -1,15 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
 import {SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
-import Homepage from './screens/home/homepage'
-import Board from './screens/Landing/Board'
+import BoardScreen from './screens/Landing/Board'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import ScoreScreen from './screens/Score/Score'
+import { NavigationContainer } from '@react-navigation/native';
 
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
+const Tab = createMaterialTopTabNavigator();
 
 class App extends Component{
   render(){
     return(
-     <Board/>
+      <NavigationContainer>
+      <Tab.Navigator initialRouteName="Board">
+        <Tab.Screen name="Board" component={BoardScreen} />
+        <Tab.Screen name="Score" component={ScoreScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
     )
 
   }

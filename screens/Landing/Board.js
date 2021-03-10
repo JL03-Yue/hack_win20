@@ -181,12 +181,12 @@ class Landing extends Component{
                     <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
                     <ReplayIcon  color="disabled" />
                 </TouchableOpacity>
-                {this.state.isEnd?
-                <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
-                    <Text style={styles.resetText}>Try again</Text>
+                {/* {this.state.isEnd? */}
+                {/* // <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}> */}
+                {/* //     <Text style={styles.resetText}>Try again</Text> */}
 
-                </TouchableOpacity>
-                :null}
+                {/* // </TouchableOpacity> */}
+                {/* // :null} */}
             </View>
 
 
