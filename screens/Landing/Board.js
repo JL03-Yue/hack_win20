@@ -1,27 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
-import {SafeAreaView, StyleSheet, Text, View, Image, FlatList,TouchableOpacity,Dimensions } from 'react-native';
+import {SafeAreaView, StyleSheet, Button,Text, View, Image, FlatList,TouchableOpacity,Dimensions } from 'react-native';
 //dimensions: auto calculate margin\
 
 import Card from './Card'
 import ReplayIcon from '@material-ui/icons/Replay';
-import { green } from '@material-ui/core/colors';
-
+import uclaCover from '../../assets/images/ucla-seal.jpg'
 
 class Landing extends Component{
-    state = {
-        cardSymbols:[
-            '🥑', '🍛', '💛', '💙', '😷', '🏀', '💻', '🍨',
-        ],
-        cardSymbolsInRand:[//store random generated symbols
-         ],
-        isOpen:[],//store true and false
-        firstPickedIndex:null,
-        secondPickedIndex:null,
-        steps:0,
-        isEnd:false,
-
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            cardSymbols:[
+                '🥑', '🍛', '💛', '💙', '😷', '🏀', '💻', '🍨',
+            ],
+            cardSymbolsInRand:[//store random generated symbols
+             ],
+            isOpen:[],//store true and false
+            firstPickedIndex:null,
+            secondPickedIndex:null,
+            steps:0,
+            isEnd:false,
+    
+        }
     }
+    
+    
 
 
     initGame =()=>{
@@ -96,6 +101,10 @@ class Landing extends Component{
                     this.setState({
                         isEnd:true,
                     })
+
+                    // this.props.navigation.navigate('Score',{score:this.state.steps,})
+
+
                     return//no need to execute following command
                 }
             }
@@ -153,6 +162,8 @@ class Landing extends Component{
         })
     }
   render(){
+    let coverPath = require('C:/Users/CLICK-USER/Desktop/hacksp_win20/assets/images/ucla-cover.png');
+    
     return(
       <>
         <StatusBar/>
@@ -166,16 +177,32 @@ class Landing extends Component{
                 <View style={styles.gameboard}>
                     {/* is show true: title false:cover */}
                     {this.state.cardSymbolsInRand.map((symbol,index)=>
-                     <Card key={index} onPress ={()=>this.cardPressHandler(index)} style={styles.button} fontSize={30} title={symbol} cover='🐻' isShow={this.state.isOpen[index]}/>)}
+                     <Card key={index} onPress ={()=>this.cardPressHandler(index)} style={styles.button} fontSize={30} title={symbol} cover='🐻' isShow={this.state.isOpen[index]}/>)} 
 
+                     {/* <Image
+                            style={{width:48, height:48,}}
+                            source={uclaCover}
+                     /> */}
                 </View>
             </View>
 
             <View style={styles.footer}>
                 <Text style={styles.footerText}>
+                   
+
                     {this.state.isEnd ? `Congratulations! You have completed in ${this.state.steps} step(s).`
                     :`You have tried ${this.state.steps} time(s).`}
                     
+                    {/* <Button
+                        title='test'
+                        onPress={()=>{
+                            this.props.navigation.navigate('Score',{
+                                score:this.state.steps,
+                            })
+                        }}
+                    /> */}
+
+                   
                     
                     </Text>
                     <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
