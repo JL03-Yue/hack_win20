@@ -1,16 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
-import {SafeAreaView, StyleSheet, Text, View, FlatList,TouchableOpacity,Dimensions } from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, Image, FlatList,TouchableOpacity,Dimensions } from 'react-native';
 //dimensions: auto calculate margin\
 
 import Card from './Card'
-
+import ReplayIcon from '@material-ui/icons/Replay';
+import { green } from '@material-ui/core/colors';
 
 
 class Landing extends Component{
     state = {
         cardSymbols:[
-            '😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣',
+            '🥑', '🍛', '💛', '💙', '😷', '🏀', '💻', '🍨',
         ],
         cardSymbolsInRand:[//store random generated symbols
          ],
@@ -158,14 +159,14 @@ class Landing extends Component{
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.heading}>Matching Game</Text>
+                
             </View>
 
             <View style={styles.main}>
                 <View style={styles.gameboard}>
                     {/* is show true: title false:cover */}
                     {this.state.cardSymbolsInRand.map((symbol,index)=>
-                    <Card key={index} onPress ={()=>this.cardPressHandler(index)} style={styles.button} fontSize={30} title={symbol} cover='😺' isShow={this.state.isOpen[index]}/>)}
-                    
+                     <Card key={index} onPress ={()=>this.cardPressHandler(index)} style={styles.button} fontSize={30} title={symbol} cover='🐻' isShow={this.state.isOpen[index]}/>)}
 
                 </View>
             </View>
@@ -177,6 +178,9 @@ class Landing extends Component{
                     
                     
                     </Text>
+                    <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
+                    <ReplayIcon  color="disabled" />
+                </TouchableOpacity>
                 {this.state.isEnd?
                 <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
                     <Text style={styles.resetText}>Try again</Text>
@@ -253,7 +257,7 @@ const styles = StyleSheet.create({
     
   },
   resetButton:{
-    backgroundColor:'#eee',
+    // backgroundColor:'#eee',
     padding:8,
     borderRadius:8,
     marginTop:20,
@@ -261,5 +265,7 @@ const styles = StyleSheet.create({
   },
   resetText:{
     fontSize:15,
+    color:'#FFB300',
+    fontWeight:'bold',
   },
 });

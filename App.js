@@ -2,14 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
 import {SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
 import Homepage from './screens/home/homepage'
-import Landing from './screens/Landing/Landing'
+import Board from './screens/Landing/Board'
 
 
 
 class App extends Component{
   render(){
     return(
-     <Landing/>
+     <Board/>
     )
 
   }
