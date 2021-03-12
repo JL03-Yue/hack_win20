@@ -1,6 +1,33 @@
 import React,{Component} from 'react'
-import {SafeAreaView,View, Text,StyleSheet,} from 'react-native'
+import {SafeAreaView,View, Text,StyleSheet,FlatList} from 'react-native'
+import BookPost from '../../components/books/booklist';
+import BookDatas from '../../components/books/booksource';
 
+
+
+const scoreRes =[
+    {
+        Date:'03/11/2021',
+        Steps:'31',
+        level:2
+    },
+    {
+        Date:'03/10/2021',
+        Steps:'50',
+        level:2,
+    },
+    {
+        Date:'03/03/2021',
+        Steps:'61',
+        level:2,
+    },
+    {
+        Date:'03/01/2021',
+        Steps:'65',
+        level:2,
+    },
+]
+ 
 
 
 class Score extends Component {
@@ -10,6 +37,9 @@ class Score extends Component {
         super(props);
         this.state = {
             // score:this.props.navigation.state.params('score')
+            scoreBase:[
+
+            ]
         }
 
     }
@@ -29,6 +59,14 @@ class Score extends Component {
                         65
                         {this.props.route.params}
                     </Text>
+                </View>
+
+                <View style={styles.leaderBoard}>
+                    <Text style={styles.leaderTitle}>Ranking</Text>
+                    <FlatList
+                        data={scoreRes}
+                        renderItem={({item}) => <Text>{item.key}</Text>}
+/>
                 </View>
             </SafeAreaView>
         )
@@ -50,13 +88,26 @@ const styles = StyleSheet.create({
         fontSize:22,
         fontWeight:'bold',
         textAlign:'center',
-        color:'#536895',
+        // color:'#536895',
     },
     scoreNum:{
         
         fontSize:42,
         fontWeight:'bold',
         textAlign:'center',
-        color:'#FFB300',
+        // color:'#FFB300',
+        color:'green',
+    },
+    leaderBoard:{
+        fontSize:22,
+        fontWeight:'bold',
+        textAlign:'center',
+        // color:'#536895',
+    },
+    leaderTitle:{
+        fontSize:22,
+        fontWeight:'bold',
+        textAlign:'center',
+        // color:'#536895',
     },
 });

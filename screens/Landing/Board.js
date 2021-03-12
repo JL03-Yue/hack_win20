@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
+import { green } from '@material-ui/core/colors';
 import {SafeAreaView, StyleSheet, Button,Text, View, Image, FlatList,TouchableOpacity,Dimensions } from 'react-native';
 //dimensions: auto calculate margin\
 
@@ -12,8 +13,14 @@ class Landing extends Component{
     {
         super(props);
         this.state = {
+            level:2,
             cardSymbols:[
                 '🥑', '🍛', '💛', '💙', '😷', '🏀', '💻', '🍨',
+            ],
+            cardSymbolHard:[
+                '🥑', '🍛', '💛', '💙', '🏆','🎬',
+                '🏰',
+                '🎓','🐾','🐱','🌞','☕',
             ],
             cardSymbolsInRand:[//store random generated symbols
              ],
@@ -22,7 +29,10 @@ class Landing extends Component{
             secondPickedIndex:null,
             steps:0,
             isEnd:false,
-    
+            fontSize:30,
+            buttonWidth:48,
+            buttonHeight:48,
+            margin:(Dimensions.get('window').width-(48*4))/(5*2),
         }
     }
     
@@ -30,7 +40,48 @@ class Landing extends Component{
 
 
     initGame =()=>{
-        let newCardSymbols = [...this.state.cardSymbols,...this.state.cardSymbols]
+        
+
+        let newCardSymbols = []
+        if(this.state.level ==2)
+        {
+            newCardSymbols = [...this.state.cardSymbols,...this.state.cardSymbols]
+            this.setState({
+                fontSize:30,
+                buttonWidth:48,
+                buttonHeight:48,
+                margin:(Dimensions.get('window').width-(48*4))/(5*2),
+
+            })
+        }
+        else if(this.state.level ==3)
+        {
+            newCardSymbols = [...this.state.cardSymbolHard,...this.state.cardSymbolHard]
+            this.setState({
+                fontSize:25,
+                buttonWidth:40,
+                buttonHeight:40,
+                margin:(Dimensions.get('window').width-(20*8))/(10*2),
+            })
+        }
+        else if(this.state.level ==1)
+        {
+            const rand1 = Math.floor(Math.random()*(11));
+            const rand2 = Math.floor(Math.random()*(11));
+
+            let tempCardSymbols = []
+            tempCardSymbols.push(this.state.cardSymbolHard[rand1])
+            tempCardSymbols.push(this.state.cardSymbolHard[rand2])
+
+            newCardSymbols = [...tempCardSymbols,...tempCardSymbols]
+            this.setState({
+                fontSize:40,
+                buttonWidth:70,
+                buttonHeight:70,
+                margin:(Dimensions.get('window').width-(20*8))/(3.5*2),
+            })
+        }
+    
         // var shuffle = require('shuffle-array')
         let cardSymbolsInRand = this.shuffleArray(newCardSymbols)
 
@@ -161,23 +212,60 @@ class Landing extends Component{
             isEnd:false,
         })
     }
+
+
+    easyMode=()=>{
+        this.setState({
+            level:1,
+        })
+        this.resetGame()
+    }
+
+    midMode=()=>{
+        this.setState({
+            level:2,
+        })
+        this.resetGame()
+    }
+
+    hardMode=()=>{
+        this.setState({
+            level:3,
+        })
+        this.resetGame()
+    }
   render(){
-    let coverPath = require('C:/Users/CLICK-USER/Desktop/hacksp_win20/assets/images/ucla-cover.png');
     
     return(
       <>
         <StatusBar/>
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.heading}>Matching Game</Text>
+                <Text style={styles.heading}>Find the Match</Text>
                 
+            </View>
+            <View style={styles.level}>
+                <TouchableOpacity  style={styles.easy}onPress={this.easyMode}>Easy</TouchableOpacity>
+                <TouchableOpacity  style={styles.mid}onPress={this.midMode} >Mid</TouchableOpacity>
+                <TouchableOpacity  style={styles.hard}onPress={this.hardMode}>Hard</TouchableOpacity>
             </View>
 
             <View style={styles.main}>
                 <View style={styles.gameboard}>
                     {/* is show true: title false:cover */}
                     {this.state.cardSymbolsInRand.map((symbol,index)=>
-                     <Card key={index} onPress ={()=>this.cardPressHandler(index)} style={styles.button} fontSize={30} title={symbol} cover='🐻' isShow={this.state.isOpen[index]}/>)} 
+                     <Card key={index} onPress ={()=>this.cardPressHandler(index)} 
+                     
+                     style={{width:this.state.buttonWidth, 
+                        height : this.state.buttonHeight,
+                        backgroundColor:'#eee',
+                        borderRadius:8,
+                        justifyContent:'center',
+                        alignItems:'center',
+                        margin:this.state.margin,}}
+                    
+                    
+                     fontSize={this.state.fontSize} title={symbol} cover='🐻' isShow={this.state.isOpen[index]}/>)} 
 
                      {/* <Image
                             style={{width:48, height:48,}}
@@ -190,7 +278,7 @@ class Landing extends Component{
                 <Text style={styles.footerText}>
                    
 
-                    {this.state.isEnd ? `Congratulations! You have completed in ${this.state.steps} step(s).`
+                    {this.state.isEnd ? `Congrats! You have completed in ${this.state.steps} step(s).`
                     :`You have tried ${this.state.steps} time(s).`}
                     
                     {/* <Button
@@ -206,7 +294,7 @@ class Landing extends Component{
                     
                     </Text>
                     <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
-                    <ReplayIcon  color="disabled" />
+                    <ReplayIcon  style={{ color: green[500] }} />
                 </TouchableOpacity>
                 {/* {this.state.isEnd? */}
                 {/* // <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}> */}
@@ -232,21 +320,40 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  easy:{
+    color:'#9ACD32',
+    backgroundColor:'#9ACD32',
+    width:'33%',
+  },
+  mid:{
+    color:'#3CB371',
+    backgroundColor:'#3CB371',
+    width:'34%',
+  },
+  hard:{
+    color:'#008000',
+    backgroundColor:'#008000',
+    width:'33%',
+  },
   header:{
       flex:1,
-      backgroundColor:'#536895',
+    //   backgroundColor:'#536895',
+      backgroundColor:'black',
       justifyContent:'center',
       alignItems:'center',
   },
   heading:{
     fontSize:22,
     fontWeight:'bold',
+    fontFamily:'Papyrus',
     textAlign:'center',
-    color:'#FFB300',
+    // color:'#FFB300',
+    color:'white',
   },
   footer:{
     flex:1,
-    backgroundColor:'#536895',
+    // backgroundColor:'#536895',
+    backgroundColor:'black',
     justifyContent:'center',
     alignItems:'center',
   },
@@ -255,6 +362,13 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontWeight:'bold',
     color:'white',
+    fontFamily:'Papyrus',
+  },
+  level:{
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:0,
   },
   main:{
     flex:3,
