@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
 import {SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
-import BoardScreen from './screens/Landing/Board'
+import BoardScreen from './screens/Board/Board'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import ScoreScreen from './screens/Score/Score'
 import { NavigationContainer } from '@react-navigation/native';
