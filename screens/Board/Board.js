@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component}from 'react';
 import { green } from '@material-ui/core/colors';
-import {SafeAreaView, StyleSheet, Button,Text, View, Image, FlatList,TouchableOpacity,Dimensions } from 'react-native';
+import {DeviceEventEmitter,Modal,SafeAreaView, StyleSheet, Button,Text, View, Image, FlatList,TouchableOpacity,Dimensions } from 'react-native';
 //dimensions: auto calculate margin\
+
+
+
 
 import Card from './Card'
 import ReplayIcon from '@material-ui/icons/Replay';
-import uclaCover from '../../assets/images/ucla-seal.jpg'
+
 
 class Landing extends Component{
     constructor(props)
@@ -33,6 +36,7 @@ class Landing extends Component{
             buttonWidth:48,
             buttonHeight:48,
             margin:(Dimensions.get('window').width-(48*4))/(5*2),
+            modalVisible:false,
         }
     }
     
@@ -100,6 +104,17 @@ class Landing extends Component{
        this.initGame()
     }
 
+    startEmit = () => {
+        // prepare value to send listener
+        console.log('start emite')
+        let score = this.state.steps;
+        let level = this.state.level;
+        DeviceEventEmitter.emit('changeScore', score);
+        DeviceEventEmitter.emit('changeLevel', level);
+        
+    };
+    
+
     cardPressHandler =(index)=>{
         let isOpen = [...this.state.isOpen]
 
@@ -151,9 +166,10 @@ class Landing extends Component{
                 if(totalOpens.length ===this.state.cardSymbolsInRand.length){
                     this.setState({
                         isEnd:true,
+                        modalVisible:true,
                     })
 
-                    // this.props.navigation.navigate('Score',{score:this.state.steps,})
+                    this.startEmit();
 
 
                     return//no need to execute following command
@@ -281,29 +297,34 @@ class Landing extends Component{
                     {this.state.isEnd ? `Congrats! You have completed in ${this.state.steps} step(s).`
                     :`You have tried ${this.state.steps} time(s).`}
                     
-                    {/* <Button
-                        title='test'
-                        onPress={()=>{
-                            this.props.navigation.navigate('Score',{
-                                score:this.state.steps,
-                            })
-                        }}
-                    /> */}
-
-                   
-                    
                     </Text>
                     <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}>
                     <ReplayIcon  style={{ color: green[500] }} />
                 </TouchableOpacity>
-                {/* {this.state.isEnd? */}
-                {/* // <TouchableOpacity onPress={this.resetGame} style = {styles.resetButton}> */}
-                {/* //     <Text style={styles.resetText}>Try again</Text> */}
 
-                {/* // </TouchableOpacity> */}
-                {/* // :null} */}
             </View>
 
+            {/* modal */}
+            <View>
+                <Modal
+                    animationType='fade'
+                    transparent={true}
+                    onRequestClose={()=>console.log('onRequestClose...')}
+                    visible={this.state.modalVisible}
+                >
+                    <Text>Modal</Text>
+                    <Text>Modal</Text>
+                    <Text>Modal</Text>
+                    <Text>Modal</Text>
+                    
+                    <TouchableOpacity
+                        onPress={()=>this.setState({modalVisible:false})}
+                    >
+                        <Text>clolse</Text>
+                    </TouchableOpacity>
+
+                </Modal>
+            </View>
 
 
         </SafeAreaView>
@@ -319,6 +340,7 @@ export default Landing
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    maxHeight:600,
   },
   easy:{
     color:'#9ACD32',
